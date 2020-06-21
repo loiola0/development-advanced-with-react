@@ -1,6 +1,15 @@
 import React,{Component} from 'react';
 import ErrorImg from './error.jpg';
 class ErrorBoundary extends Component{
+
+    /**
+     *  ErrorBoundary não campturam erros em:
+     * Manipuladores de eventos.
+     * Código assícronos(Ex: callbacks de setTimeOut ou requestAnimationFrame)
+     * Renderização no servidor.
+     * Error lançados na própria error boundary(ao invés de em seus filhos)
+     */
+
     constructor(props){
         super(props)
 

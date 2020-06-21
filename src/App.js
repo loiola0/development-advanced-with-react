@@ -15,7 +15,7 @@ const store = [{
 function Columns({type}){
   return (
     <tr>
-      <td>{type.name.console}</td>
+      <td>{type}</td>
     </tr>
   );
 }
