@@ -1,25 +1,15 @@
-import React,{Component} from 'react';
+import React from 'react';
+import {ThemeContext,themes} from './Themes';
+import Card from './Card';
 
-class Twitter extends Component {
-
-  componentWillMount(){
-    console.log('componentWillMount');
-  }
-
-  componentDidMount(){
-    console.log('componentDidMount');
-  }
-
-
-
-  render(){
-    return (
-      <div>
-        Teste
-      </div>
-    );
-  };
-
+function App () {
+  return (
+    
+      <ThemeContext.Provider value={themes.primary}>
+        <Card/>
+      </ThemeContext.Provider>
+    
+  );
 }
 
-export default Twitter;
+export default App;
