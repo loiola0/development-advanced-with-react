@@ -1,14 +1,37 @@
-import React from 'react';
-import {ThemeContext,themes} from './Themes';
-import Card from './Card';
+import React,{Fragment} from 'react';
+
+const store = [{
+    type: 'Roupa',
+  },
+  {
+    type: 'Calçado',
+  },
+  {
+    type: 'Tênis',
+  }
+
+];
+
+function Columns({type}){
+  return (
+    <tr>
+      <td>{type.name.console}</td>
+    </tr>
+  );
+}
 
 function App () {
+
+  const renderColumns = (element,key) => (
+    <Fragment key={`column-${key}`}>
+      <Columns type={element.type}/>
+    </Fragment>
+  )
+
   return (
-    
-      <ThemeContext.Provider value={themes.primary}>
-        <Card/>
-      </ThemeContext.Provider>
-    
+    <table>
+      {store.map(renderColumns)}
+    </table>
   );
 }
 
