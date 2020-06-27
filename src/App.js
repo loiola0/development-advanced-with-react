@@ -1,38 +1,41 @@
-import React,{Fragment} from 'react';
+import React,{Component} from 'react';
 
-const store = [{
-    type: 'Roupa',
-  },
-  {
-    type: 'Calçado',
-  },
-  {
-    type: 'Tênis',
-  }
+import Counter from './Counter';
 
-];
+const Buttons = ({increment,decrement,count}) => (
 
-function Columns({type}){
-  return (
-    <tr>
-      <td>{type}</td>
-    </tr>
-  );
+    <div>
+        <h1>Valor Atual: {count}</h1>
+        <div>
+          <button onClick={increment}>Adicionar 1</button>
+        </div>
+
+        <div>
+          <button onClick={decrement}>Remover 1</button>
+        </div>
+    </div>
+
+);
+
+
+
+class App extends Component{
+  
+    render(){
+      return (
+        <div>
+          <Counter render={
+            ({ increment,decrement,count}) =>(
+              <Buttons increment={increment} decrement={decrement} count={count}/>
+            )
+          }>
+
+          </Counter>
+        </div>
+      );
+    }
+
 }
 
-function App () {
-
-  const renderColumns = (element,key) => (
-    <Fragment key={`column-${key}`}>
-      <Columns type={element.type}/>
-    </Fragment>
-  )
-
-  return (
-    <table>
-      {store.map(renderColumns)}
-    </table>
-  );
-}
 
 export default App;
