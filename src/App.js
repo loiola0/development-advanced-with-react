@@ -1,40 +1,19 @@
-import React,{Component} from 'react';
+import React from 'react';
+import PetShop from './PetShop';
 
-import Counter from './Counter';
+function App() {
 
-const Buttons = ({increment,decrement,count}) => (
+  const handleClick = () => {
+      console.log('Iniciando Banho...');
+  }
 
-    <div>
-        <h1>Valor Atual: {count}</h1>
-        <div>
-          <button onClick={increment}>Adicionar 1</button>
-        </div>
-
-        <div>
-          <button onClick={decrement}>Remover 1</button>
-        </div>
-    </div>
-
-);
-
-
-
-class App extends Component{
-  
-    render(){
-      return (
-        <div>
-          <Counter render={
-            ({ increment,decrement,count}) =>(
-              <Buttons increment={increment} decrement={decrement} count={count}/>
-            )
-          }>
-
-          </Counter>
-        </div>
-      );
-    }
-
+  return (
+    <PetShop
+      dogs={2} 
+      onClick={handleClick}
+      status="false"
+    />
+  );
 }
 
 
